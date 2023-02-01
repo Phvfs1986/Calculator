@@ -24,102 +24,14 @@ let currentValue = '';
 let operand = '';
 let operations = '';
 
+document.addEventListener('keydown', e => {
+    let selection = e.key;
+    console.log(selection);
+    calculator(selection);
+})
 document.addEventListener('click', e => {
     let selection = e.target.id;
-    console.log(selection);
-
-    switch (selection) {
-        case 'one':
-            displayValue += '1';
-            updateVisor();
-            break;
-        case 'two':
-            displayValue += '2';
-            updateVisor();
-            break;
-        case 'three':
-            displayValue += '3';
-            updateVisor();
-            break;
-        case 'four':
-            displayValue += '4';
-            updateVisor();
-            break;
-        case 'five':
-            displayValue += '5';
-            updateVisor();
-            break;
-        case 'six':
-            displayValue += '6';
-            updateVisor();
-            break;
-        case 'seven':
-            displayValue += '7';
-            operations += ' 7 ';
-            updateVisor();
-            break;
-        case 'eight':
-            displayValue += '8';
-            updateVisor();
-            break;
-        case 'nine':
-            displayValue += '9';
-            updateVisor();
-            break;
-        case 'zero':
-            displayValue += '0';
-            updateVisor();
-            break;
-        case 'add':
-            if (operand != '') {
-                operate(currentValue, displayValue, operand);
-            }
-            currentValue = displayValue;
-            operand = '+';
-            updateVisor();
-            displayValue = '';
-            break;
-        case 'minus':
-            if (operand != '') {
-                operate(currentValue, displayValue, operand);
-            }
-            currentValue = displayValue;
-            operand = '-';
-            updateVisor();
-            displayValue = '';
-            break;
-        case 'mult':
-            if (operand != '') {
-                operate(currentValue, displayValue, operand);
-            }
-            currentValue = displayValue;
-            operand = '*';
-            updateVisor();
-            displayValue = '';
-            break;
-        case 'division':
-            operations += ' / ';
-            if (operand != '') {
-                operate(currentValue, displayValue, operand);
-            }
-            currentValue = displayValue;
-            operand = '/';
-            updateVisor();
-            displayValue = '';
-            break;
-        case 'equals':
-            operations += ' = '
-            operate(currentValue, displayValue, operand);
-            currentValue = '';
-            operand = '';
-            break;
-        case 'clear':
-            displayValue = '';
-            currentValue = '';
-            operand = '';
-            updateVisor();
-            break;
-    }
+    calculator(selection);
 })
 function updateVisor() {
     mainVisor.innerText = displayValue;
@@ -144,5 +56,114 @@ function operate(currentValue, otherValue, operand) {
         displayValue = +currentValue / +otherValue;
         operand = '';
         updateVisor();
+    }
+}
+function calculator(selection) {
+    switch (selection) {
+        case 'one':
+        case '1':
+            displayValue += '1';
+            updateVisor();
+            break;
+        case 'two':
+        case '2':
+            displayValue += '2';
+            updateVisor();
+            break;
+        case 'three':
+        case '3':
+            displayValue += '3';
+            updateVisor();
+            break;
+        case 'four':
+        case '4':
+            displayValue += '4';
+            updateVisor();
+            break;
+        case 'five':
+        case '5':
+            displayValue += '5';
+            updateVisor();
+            break;
+        case 'six':
+        case '6':
+            displayValue += '6';
+            updateVisor();
+            break;
+        case 'seven':
+        case '7':
+            displayValue += '7';
+            updateVisor();
+            break;
+        case 'eight':
+        case '8':
+            displayValue += '8';
+            updateVisor();
+            break;
+        case 'nine':
+        case '9':
+            displayValue += '9';
+            updateVisor();
+            break;
+        case 'zero':
+        case '0':
+            displayValue += '0';
+            updateVisor();
+            break;
+        case 'add':
+        case '+':
+            if (operand != '') {
+                operate(currentValue, displayValue, operand);
+            }
+            currentValue = displayValue;
+            operand = '+';
+            updateVisor();
+            displayValue = '';
+            break;
+        case 'minus':
+        case '-':
+            if (operand != '') {
+                operate(currentValue, displayValue, operand);
+            }
+            currentValue = displayValue;
+            operand = '-';
+            updateVisor();
+            displayValue = '';
+            break;
+        case 'mult':
+        case '*':
+            if (operand != '') {
+                operate(currentValue, displayValue, operand);
+            }
+            currentValue = displayValue;
+            operand = '*';
+            updateVisor();
+            displayValue = '';
+            break;
+        case 'division':
+        case '/':
+            operations += ' / ';
+            if (operand != '') {
+                operate(currentValue, displayValue, operand);
+            }
+            currentValue = displayValue;
+            operand = '/';
+            updateVisor();
+            displayValue = '';
+            break;
+        case 'equals':
+        case '=':
+            operations += ' = '
+            operate(currentValue, displayValue, operand);
+            currentValue = '';
+            operand = '';
+            break;
+        case 'clear':
+        case 'backspace':
+            displayValue = '';
+            currentValue = '';
+            operand = '';
+            updateVisor();
+            break;
     }
 }

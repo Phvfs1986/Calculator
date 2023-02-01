@@ -37,14 +37,16 @@ body {
     width: 300px;
 }
 #main-visor {
+    display: flex;
     color: whitesmoke;
     padding: 15px;
     margin: 0;
-    height: 30px;
+    height: 45px;
     background-color: rgb(82, 82, 82);
-    border: 1px solid white;
+    border: 3px solid black;
     font-size: 32px;
-    text-align: end;
+    justify-content: end;
+    align-items: center;
     border-radius: 5px;
 }
 button {
@@ -60,4 +62,11 @@ button:hover {
 }
 button:active {
     background-color: rgb(173, 173, 173);
+}
+.operator {
+    background-color: rgb(55, 55, 55);
+    color: whitesmoke;
+}
+.toggle-operator {
+    background-color: green;
 }
