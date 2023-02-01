@@ -110,6 +110,8 @@ document.addEventListener('click', e => {
         case 'equals':
             operations += ' = '
             operate(currentValue, displayValue, operand);
+            currentValue = '';
+            operand = '';
             break;
         case 'clear':
             displayValue = '';
